@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState } from 'react';
 import './ProductList.css';
 import CartItem from './CartItem';
@@ -10,6 +11,12 @@ function ProductList({ onHomeClick }) {
   const [showPlants, setShowPlants] = useState(false);
   const [addedToCart, setAddedToCart] = useState({});
   const dispatch = useDispatch();
+  dispatch(addItem(product));
+  // eslint-disable-next-line no-unused-vars
+  const calculateTotalQuantity = () => {
+ return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+  };
+  dispatch(removeItem(item.name));
  
   const handleAddToCart = (product) => {
   dispatch(addItem(product)); // Dispatch the action to add the product to the cart (Redux action)
