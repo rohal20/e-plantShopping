@@ -229,6 +229,26 @@ function ProductList({ onHomeClick }) {
     ];
 
     
+    const styleObj = {
+        backgroundColor: '#4CAF50',
+        color: '#fff!important',
+        padding: '15px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignIems: 'center',
+        fontSize: '20px',
+    }
+    const styleObjUl = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '1100px',
+    }
+    const styleA = {
+        color: 'white',
+        fontSize: '30px',
+        textDecoration: 'none',
+    }
       const handleHomeClick = (e) => {
         e.preventDefault();
         setShowPlants(false);
@@ -272,6 +292,13 @@ function ProductList({ onHomeClick }) {
                 </svg>
               </a>
             </div>
+            <nav style={styleObj}>
+  <ul style={styleObjUl}>
+    <li><a href="/" style={styleA}>Home</a></li>
+    <li><a href="/plants" style={styleA}>Plants</a></li>
+  </ul>
+</nav>
+
           </div>
 
           {plantsArray.map((category, index) => ( // Loop through each category in plantsArray
