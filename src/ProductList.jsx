@@ -227,9 +227,7 @@ function ProductList({ onHomeClick }) {
             ]
         }
     ];
-
-    
-    const styleObj = {
+const styleObj = {
         backgroundColor: '#4CAF50',
         color: '#fff!important',
         padding: '15px',
@@ -249,6 +247,8 @@ function ProductList({ onHomeClick }) {
         fontSize: '30px',
         textDecoration: 'none',
     }
+
+   
       const handleHomeClick = (e) => {
         e.preventDefault();
         setShowPlants(false);
@@ -276,7 +276,7 @@ function ProductList({ onHomeClick }) {
 
     return (
         <div>
-          <div className="navbar">
+          <div className="navbar" style={styleObj}>
             <div className="luxury">
               <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="logo" />
               <a href="/" onClick={handleHomeClick}>
@@ -284,25 +284,14 @@ function ProductList({ onHomeClick }) {
                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
               </a>
             </div>
-            <div className="menu">
-              <a href="#" onClick={handlePlantsClick} style={{ color: 'white', fontSize: '24px' }}>Plants</a>
-              <a href="#" onClick={handleCartClick}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" fill="white">
-                  <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10-2H8.42l-.94-2H20v2zm0-4H7.83l-1.12-2H20v2zm0-4H5.21l-1-2H1V4h3l3.6 7.59L5.25 14h13.02c.66 0 1.25.42 1.46 1.03l1.88 5.62c.12.36.18.74.18 1.12 0 1.1-.9 2-2 2h-2v-2h2l-1.82-5.4L17 12z"/>
-                </svg>
-              </a>
-            </div>
-            <nav style={styleObj}>
-  <ul style={styleObjUl}>
-    <li><a href="/" style={styleA}>Home</a></li>
-    <li><a href="/plants" style={styleA}>Plants</a></li>
-  </ul>
-</nav>
-
+            <div style={styleObjUl}>
+                    <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
+                    <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><rect width="156" height="156" fill="none"></rect><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" id="mainIconPathAttribute"></path></svg></h1></a></div>
+                </div>
           </div>
 
           {plantsArray.map((category, index) => ( // Loop through each category in plantsArray
-  <div key={index}> {/* Unique key for each category div */}
+        <div key={index}> {/* Unique key for each category div */}
     <h1>
       <div>{category.category}</div> {/* Display the category name */}
     </h1>
